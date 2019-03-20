@@ -1,0 +1,11 @@
+<svg>
+  <text id="LabelActiveMinutes" x="20" y="30" class="activity-text" />
+  <text id="LabelCalories" x="20" y="50" class="activity-text" />
+  <text id="LabelDistance" x="20" y="70" class="activity-text" />
+  <text id="LabelElevationGain" x="20" y="90" class="activity-text" />
+  <text id="LabelSteps" x="20" y="110" class="activity-text" />
+
+  <rect id="background" />
+  <rect id="clickbg1" pointer-events="visible"/>
+  <text id="Label1" pointer-events="visible">Send Data</text>
+</svg>
