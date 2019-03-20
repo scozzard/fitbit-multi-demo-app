@@ -29,35 +29,59 @@ function sendVal(data) {
 
 // Message is received
 messaging.peerSocket.onmessage = evt => {
-  console.log(`Phone received: ${JSON.stringify(evt.data)}`);
-  let msg = evt.data.value
-  sendVal({key:'Label1', newValue:'{"name":"Sending..."}'})
-  let label = ""
-  try {label = JSON.parse(settingsStorage.getItem('Label'+msg)).name} catch(err) {} 
-  let url = ""
-  try {url = JSON.parse(settingsStorage.getItem('URL'+msg)).name} catch(err) {} 
-  url = url.replace(/~Lbl/g,encodeURIComponent(label));
-  let data = ""
-  try {data = JSON.parse(settingsStorage.getItem('Data'+msg)).name} catch(err) {}
-  let headers = ""
-  try {headers = JSON.parse(settingsStorage.getItem('Headers'+msg)).name} catch(err) {}
-  console.log("URL = "+ url)
-  console.log("Data = " + data)
-  console.log("Headers = " + headers)
-  if (data == "")
-    if (headers == "")
-      fetch(url, {method: "GET"}) 
-        .then(function(response) {sendVal({key:'Label1', newValue:'{"name":"Send Data"}'})})
-    else 
-      fetch(url, {method: "GET", headers: JSON.parse(headers)})
-        .then(function(response) {sendVal({key:'Label1', newValue:'{"name":"Send Data"}'})})
-  else {
-    data = data.replace(/~Lbl/g,label);
-    if (headers == "") 
-      fetch(url, {method: "POST", body: data}) 
-        .then(function(response) {sendVal({key:'Label1', newValue:'{"name":"Send Data"}'})})
-    else 
-      fetch(url, {method: "POST", headers: JSON.parse(headers), body: data})
-        .then(function(response) {sendVal({key:'Label1', newValue:'{"name":"Send Data"}'})})
+  console.log(`[Phone] received message: ${JSON.stringify(evt.data)}`);
+
+  let event = evt.data.key;
+
+  if (event == "PostData")
+  {
+    let data = evt.data.value;
+
+    sendVal({key:'LabelPostData', newValue:'Requesting...'});
+
+    let url = ""
+    try {url = JSON.parse(settingsStorage.getItem('URL')).name} catch(err) {}
+
+    fetch(url, {method: "POST", body: JSON.stringify(data)}).then(function(response){
+      sendVal({key:'LabelPostData', newValue:'Post Data'});
+
+      let today = new Date();
+      let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      sendVal({key:'LabelPostDataResult', newValue:'Last request completed at ' + time});
+    });
+  }
+
+  if (event == "PostSensorData")
+  {
+    let data = evt.data.value;
+
+    sendVal({key:'LabelPostSensorData', newValue:'Requesting...'});
+
+    let url = ""
+    try {url = JSON.parse(settingsStorage.getItem('URL')).name} catch(err) {}
+
+    fetch(url, {method: "POST", body: JSON.stringify(data)}).then(function(response){
+      sendVal({key:'LabelPostSensorData', newValue:'Post Data'});
+
+      let today = new Date();
+      let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      sendVal({key:'LabelPostSensorDataResult', newValue:'Last request completed at ' + time});
+    });
+  }
+
+  if (event == "GetData")
+  {
+    sendVal({key:'LabelGetData', newValue:'Requesting...'});
+
+    let url = ""
+    try {url = JSON.parse(settingsStorage.getItem('URL')).name} catch(err) {} 
+
+    fetch(url, {method: "GET"}).then(function(response){
+      sendVal({key:'LabelGetData', newValue:'Get Data'});
+      
+      let today = new Date();
+      let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      sendVal({key:'LabelGetDataResult', newValue:'Last request completed at ' + time});
+    });
   }
 };

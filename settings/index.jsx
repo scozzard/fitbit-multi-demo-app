@@ -4,15 +4,15 @@ function mySettings(props) {
       <Section
         title={<Text bold align="center">Message 1</Text>}>
         <TextInput
-          settingsKey="URL1"
+          settingsKey="URL"
           label="URL:"
         />
         <TextInput
-          settingsKey="Data1"
+          settingsKey="Data"
           label="Data:"
         />
         <TextInput
-          settingsKey="Headers1"
+          settingsKey="Headers"
           label="Headers:"
         />
       </Section>

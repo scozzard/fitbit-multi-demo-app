@@ -1,11 +1,45 @@
 <svg>
-  <text id="LabelActiveMinutes" x="20" y="30" class="activity-text" />
-  <text id="LabelCalories" x="20" y="50" class="activity-text" />
-  <text id="LabelDistance" x="20" y="70" class="activity-text" />
-  <text id="LabelElevationGain" x="20" y="90" class="activity-text" />
-  <text id="LabelSteps" x="20" y="110" class="activity-text" />
+  <use id="container" href="#panoramaview">
+    <!-- View and POST Activites viewport -->
+    <use href="#panoramaview-item">
+        <text  x="20" y="30" class="header-text-orange">Activities</text>
+        <text id="LabelActiveMinutes" x="20" y="50" class="metric-text" />
+        <text id="LabelCalories" x="20" y="70" class="metric-text" />
+        <text id="LabelDistance" x="20" y="90" class="metric-text" />
+        <text id="LabelElevationGain" x="20" y="110" class="metric-text" />
+        <text id="LabelSteps" x="20" y="130" class="metric-text" />
+        <text id="LabelPostDataResult" x="20" y="150" class="info" />
 
-  <rect id="background" />
-  <rect id="clickbg1" pointer-events="visible"/>
-  <text id="Label1" pointer-events="visible">Send Data</text>
+        <rect id="ButtonPostData" pointer-events="visible" class="submit-button-bg" />
+        <text id="LabelPostData" pointer-events="visible" class="submit-button-label">Post Data</text>
+    </use>
+
+    <!-- View and POST Sensors viewport -->
+    <use href="#panoramaview-item">
+        <text  x="20" y="30" class="header-text-orange">Sensors</text>
+        <text id="LabelHeartRate" x="20" y="50" class="metric-text" />
+        <text id="LabelAccelerometer" x="20" y="70" class="metric-text" />
+        <text id="LabelBarometer" x="20" y="90" class="metric-text" />
+        <text id="LabelPostSensorDataResult" x="20" y="150" class="info" />
+
+        <rect id="ButtonPostSensorData" pointer-events="visible" class="submit-button-bg" />
+        <text id="LabelPostSensorData" pointer-events="visible" class="submit-button-label">Post Data</text>
+    </use>
+
+    <!-- Test a GET Request viewport -->
+    <use href="#panoramaview-item">
+        <textarea x="20" y="10" width="100%" class="header-text-white">Perform a GET request to the url specified in the settings.</textarea>
+        <text id="LabelGetDataResult" x="20" y="150" class="info" />
+        <rect id="ButtonGetData" pointer-events="visible" class="submit-button-bg" />
+        <text id="LabelGetData" pointer-events="visible" class="submit-button-label">Get Data</text>
+    </use>
+
+    <!-- Have enough pagination dots for your slides (extras are hidden) -->
+    <use id="pagination-dots" href="#pagination-widget" y="8">
+      <use href="#pagination-dot" />
+      <use href="#pagination-dot" />
+      <use href="#pagination-dot" />
+      <use href="#pagination-highlight-dot" />
+    </use>
+  </use>
 </svg>
