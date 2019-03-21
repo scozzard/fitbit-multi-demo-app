@@ -38,7 +38,7 @@ export function populateResultLabel(value) {
     LabelPostSensorDataResult.text = value;
 }
 
-export function initialiseComponents(){
+export function initialiseComponents() {
     startRecordingSensorData();
 }
 

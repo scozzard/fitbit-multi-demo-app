@@ -19,11 +19,11 @@ export function populateButtonLabel(value) {
     LabelPostActivityData.text = value;
 }
 
-export function populateResultLabel(value){
+export function populateResultLabel(value) {
     LabelPostActivityDataResult.text = value;
 }
 
-export function initialiseComponents(){
+export function initialiseComponents() {
     populateActivityLabels();
 }
 

@@ -34,55 +34,52 @@ messaging.peerSocket.onmessage = evt => {
 
   let event = evt.data.key;
 
-  if (event == "PostActivityData")
-  {
+  if (event == "PostActivityData") {
     let data = evt.data.value;
 
-    sendVal({key:'LabelPostActivityData', newValue:'Requesting...'});
+    sendVal({ key: 'LabelPostActivityData', newValue: 'Requesting...' });
 
     let url = ""
-    try {url = JSON.parse(settingsStorage.getItem('URL')).name} catch(err) {}
+    try { url = JSON.parse(settingsStorage.getItem('URL')).name } catch (err) { }
 
-    fetch(url, {method: "POST", body: JSON.stringify(data)}).then(function(response){
-      sendVal({key:'LabelPostActivityData', newValue:'Post Data'});
+    fetch(url, { method: "POST", body: JSON.stringify(data) }).then(function (response) {
+      sendVal({ key: 'LabelPostActivityData', newValue: 'Post Data' });
 
       let today = new Date();
       let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      sendVal({key:'LabelPostActivityDataResult', newValue:'Last request completed at ' + time});
+      sendVal({ key: 'LabelPostActivityDataResult', newValue: 'Last request completed at ' + time });
     });
   }
 
-  if (event == "PostSensorData")
-  {
+  if (event == "PostSensorData") {
     let data = evt.data.value;
 
-    sendVal({key:'LabelPostSensorData', newValue:'Requesting...'});
+    sendVal({ key: 'LabelPostSensorData', newValue: 'Requesting...' });
 
     let url = ""
-    try {url = JSON.parse(settingsStorage.getItem('URL')).name} catch(err) {}
+    try { url = JSON.parse(settingsStorage.getItem('URL')).name } catch (err) { }
 
-    fetch(url, {method: "POST", body: JSON.stringify(data)}).then(function(response){
-      sendVal({key:'LabelPostSensorData', newValue:'Post Data'});
+    fetch(url, { method: "POST", body: JSON.stringify(data) }).then(function (response) {
+      sendVal({ key: 'LabelPostSensorData', newValue: 'Post Data' });
 
       let today = new Date();
       let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      sendVal({key:'LabelPostSensorDataResult', newValue:'Last request completed at ' + time});
+      sendVal({ key: 'LabelPostSensorDataResult', newValue: 'Last request completed at ' + time });
     });
   }
 
-  if (event == "GetData")
-  {
-    sendVal({key:'LabelGetData', newValue:'Requesting...'});
+  if (event == "GetData") {
+    sendVal({ key: 'LabelGetData', newValue: 'Requesting...' });
 
     let url = ""
-    try {url = JSON.parse(settingsStorage.getItem('URL')).name} catch(err) {} 
+    try { url = JSON.parse(settingsStorage.getItem('URL')).name } catch (err) { }
 
-    fetch(url, {method: "GET"}).then(function(response){
-      sendVal({key:'LabelGetData', newValue:'Get Data'});
-      
+    fetch(url, { method: "GET" }).then(function (response) {
+      sendVal({ key: 'LabelGetData', newValue: 'Get Data' });
+
       let today = new Date();
       let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      sendVal({key:'LabelGetDataResult', newValue:'Last request completed at ' + time});
+      sendVal({ key: 'LabelGetDataResult', newValue: 'Last request completed at ' + time });
     });
   }
 };

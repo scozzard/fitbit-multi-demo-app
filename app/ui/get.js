@@ -6,9 +6,9 @@ import { vibration } from "haptics";
 let ButtonGetData = document.getElementById("ButtonGetData");
 let LabelGetData = document.getElementById("LabelGetData");
 
-ButtonGetData.onclick = function(evt) {
-  messaging.sendVal({key:'GetData'})
-  vibration.start("confirmation");
+ButtonGetData.onclick = function (evt) {
+    messaging.sendVal({ key: 'GetData' })
+    vibration.start("confirmation");
 }
 
 LabelGetData.onclick = ButtonGetData.onclick
