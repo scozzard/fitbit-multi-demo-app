@@ -1,6 +1,6 @@
 # FitBit Demo App
 
-A FitBit app that uses [Panorama View](https://dev.fitbit.com/build/guides/user-interface/svg-components/views/#panorama-view) to display three seperate horizontally scrollable views. Each view demonstrates the ability to make a GET or POST request from the device to the internet (via the sending messages to the [companion](https://dev.fitbit.com/build/guides/companion/)). These demos include:
+A FitBit app that uses [Panorama View](https://dev.fitbit.com/build/guides/user-interface/svg-components/views/#panorama-view) to display three seperate horizontally scrollable views. Each view demonstrates the ability to send a HTTP/HTTPS GET or POST request from the device to the internet (via the sending messages to the [companion](https://dev.fitbit.com/build/guides/companion/)). These demos include:
 
 * POST a selection today's [user activity](https://dev.fitbit.com/build/reference/device-api/user-activity/) metrics to a specified API endpoint (using the Device API).
 * POST a selection of the current [sensor](https://dev.fitbit.com/build/guides/sensors/) metrics to a specified API endpoint (using Sensor APIs).
