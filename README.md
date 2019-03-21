@@ -1,14 +1,11 @@
 # SendMessage
-Send Message app for Fitbit Versa and Ionic
 
-This is a port of my Send Message app from Pebble - an HTTPS client supporting GET and POST requests (though HTTP only works to IP addresses on your own network).  It is intended for technically proficient audience and use of its more advanced features requires some understanding of JSON data structures.
+A FitBit app that uses [Panorama View](https://dev.fitbit.com/build/guides/user-interface/svg-components/views/#panorama-view) to display three seperate horizontally scrollable views. Each view demonstrates the ability to make a GET or POST request from the device to the internet (via the sending messages to the [Companion](https://dev.fitbit.com/build/guides/companion/)). These demos include:
 
-The app allows configuration with three sets of label, URL, data segment (for POST) and headers.  Touching that label will then fire off the associated request, and the status text returned will be displayed on the watch and can be dismissed by touching it.
+* POST a selection today's [user activity](https://dev.fitbit.com/build/reference/device-api/user-activity/) metrics to a specified API endpoint.
+* POST a selection of the current [Sensor](https://dev.fitbit.com/build/guides/sensors/) metrics to a specified API endpoint.
+* Make a generic GET request to a specified endpoint.
 
-For example, the label might be 'Send help!' and the URL/data fields contain the request details to send this message to a service that creates a text message (to which you would need to subscribe).  The URL will be something like 'https://server.domain.com/path' and the data might look something like {"{'key':'message','value':'Help!'} "} or {"{'key':'message','value':'~Lbl'} "} (where ~Lbl is substitited with the label text).
+The app requires a `URL` configuration setting to be set before it can be run successfully. The `URL` setting is used by each of the UI views (mentioned above) to determine an endpoint to make requests to.
 
-To test your requests, you might want to use the free testing service at https://www.requestcatcher.com.
-
-The compiled version of this app is at https://gam.fitbit.com/gallery/app/08e2723d-c0f3-429c-9cb8-e93086fd604c.
-
-The Pebble version of this app could also substitute location-specific information.  I may implement this later if there's enough interest.
+A good way to test would be to use a free request testing service such as https://www.requestcatcher.com.
