@@ -8,9 +8,9 @@ import { Accelerometer } from "accelerometer";
 import { Barometer } from "barometer";
 
 // Buttons
-let ButtonPostData = document.getElementById("ButtonPostData");
-let LabelPostData = document.getElementById("LabelPostData");
-let LabelPostDataResult = document.getElementById("LabelPostDataResult");
+let ButtonPostActivityData = document.getElementById("ButtonPostActivityData");
+let LabelPostActivityData = document.getElementById("LabelPostActivityData");
+let LabelPostActivityDataResult = document.getElementById("LabelPostActivityDataResult");
 
 let ButtonGetData = document.getElementById("ButtonGetData");
 let LabelGetData = document.getElementById("LabelGetData");
@@ -45,14 +45,14 @@ messaging.peerSocket.onclose = () => {
 // Message is received
 messaging.peerSocket.onmessage = evt => {
   console.log(`[Watch] Message received: ${JSON.stringify(evt)}`);
-  if (evt.data.key === "LabelPostData" && evt.data.newValue)
+  if (evt.data.key === "LabelPostActivityData" && evt.data.newValue)
   {
-    LabelPostData.text = evt.data.newValue;
+    LabelPostActivityData.text = evt.data.newValue;
   }
   
-  if (evt.data.key === "LabelPostDataResult" && evt.data.newValue)
+  if (evt.data.key === "LabelPostActivityDataResult" && evt.data.newValue)
   {
-    LabelPostDataResult.text = evt.data.newValue;
+    LabelPostActivityDataResult.text = evt.data.newValue;
   }
 
   if (evt.data.key === "LabelPostSensorData" && evt.data.newValue)
@@ -84,9 +84,9 @@ function sendVal(data) {
   }
 }
 
-ButtonPostData.onclick = function(evt) {
+ButtonPostActivityData.onclick = function(evt) {
   sendVal({
-    'key':'PostData',
+    'key':'PostActivityData',
     'value':{
       'activeMinutes': today.local.activeMinutes,
       'calories': today.local.calories,
@@ -97,7 +97,7 @@ ButtonPostData.onclick = function(evt) {
   vibration.start("confirmation");
 }
 
-LabelPostData.onclick = ButtonPostData.onclick
+LabelPostActivityData.onclick = ButtonPostActivityData.onclick
 
 ButtonGetData.onclick = function(evt) {
   sendVal({key:'GetData'})

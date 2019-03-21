@@ -33,21 +33,21 @@ messaging.peerSocket.onmessage = evt => {
 
   let event = evt.data.key;
 
-  if (event == "PostData")
+  if (event == "PostActivityData")
   {
     let data = evt.data.value;
 
-    sendVal({key:'LabelPostData', newValue:'Requesting...'});
+    sendVal({key:'LabelPostActivityData', newValue:'Requesting...'});
 
     let url = ""
     try {url = JSON.parse(settingsStorage.getItem('URL')).name} catch(err) {}
 
     fetch(url, {method: "POST", body: JSON.stringify(data)}).then(function(response){
-      sendVal({key:'LabelPostData', newValue:'Post Data'});
+      sendVal({key:'LabelPostActivityData', newValue:'Post Data'});
 
       let today = new Date();
       let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      sendVal({key:'LabelPostDataResult', newValue:'Last request completed at ' + time});
+      sendVal({key:'LabelPostActivityDataResult', newValue:'Last request completed at ' + time});
     });
   }
 

@@ -8,10 +8,10 @@
         <text id="LabelDistance" x="20" y="90" class="metric-text" />
         <text id="LabelElevationGain" x="20" y="110" class="metric-text" />
         <text id="LabelSteps" x="20" y="130" class="metric-text" />
-        <text id="LabelPostDataResult" x="20" y="150" class="info" />
+        <text id="LabelPostActivityDataResult" x="20" y="150" class="info" />
 
-        <rect id="ButtonPostData" pointer-events="visible" class="submit-button-bg" />
-        <text id="LabelPostData" pointer-events="visible" class="submit-button-label">Post Data</text>
+        <rect id="ButtonPostActivityData" pointer-events="visible" class="submit-button-bg" />
+        <text id="LabelPostActivityData" pointer-events="visible" class="submit-button-label">Post Data</text>
     </use>
 
     <!-- View and POST Sensors viewport -->
@@ -34,7 +34,7 @@
         <text id="LabelGetData" pointer-events="visible" class="submit-button-label">Get Data</text>
     </use>
 
-    <!-- Have enough pagination dots for your slides (extras are hidden) -->
+    <!-- Have enough pagination dots for your slides -->
     <use id="pagination-dots" href="#pagination-widget" y="8">
       <use href="#pagination-dot" />
       <use href="#pagination-dot" />
