@@ -1,4 +1,4 @@
-# FitBit Demo App
+# FitBit Demos App
 
 A FitBit app that uses [Panorama View](https://dev.fitbit.com/build/guides/user-interface/svg-components/views/#panorama-view) to display three seperate horizontally scrollable views. Each view demonstrates the ability to send a HTTP/HTTPS GET or POST request from the device to the internet (via the sending messages to the [companion](https://dev.fitbit.com/build/guides/companion/)). These demos include:
 
