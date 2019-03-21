@@ -1,6 +1,5 @@
 import document from 'document'
 import * as messaging from "messaging";
-import * as activitiesUI from "./ui/activities"
 
 // Message socket opens
 messaging.peerSocket.onopen = () => {
