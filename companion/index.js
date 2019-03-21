@@ -3,12 +3,12 @@ import { settingsStorage } from "settings";
 
 // Message socket opens
 messaging.peerSocket.onopen = () => {
-  console.log("Companion Socket Open");
+  console.log("[Phone] Companion Socket Open");
 };
 
 // Message socket closes
 messaging.peerSocket.onclose = () => {
-  console.log("Companion Socket Closed");
+  console.log("[Phone] Companion Socket Closed");
 };
 
 // A user changes settings
@@ -22,6 +22,7 @@ settingsStorage.onchange = evt => {
 
 // Send data to device using Messaging API
 function sendVal(data) {
+  console.log(`[Phone] Message being sent: ${JSON.stringify(data)}`);
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send(data);
   }
@@ -29,7 +30,7 @@ function sendVal(data) {
 
 // Message is received
 messaging.peerSocket.onmessage = evt => {
-  console.log(`[Phone] received message: ${JSON.stringify(evt.data)}`);
+  console.log(`[Phone] Message received: ${JSON.stringify(evt.data)}`);
 
   let event = evt.data.key;
 
